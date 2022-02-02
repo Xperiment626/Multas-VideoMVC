@@ -1,0 +1,79 @@
+<section class="relative mt-8 bg-blueGray-50">
+<div class="w-full mb-12 px-4">  
+  <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded 
+  bg-pink-900 text-white">
+    <div class="rounded-t mb-0 px-4 py-3 border-0">
+      <div class="flex flex-wrap items-center">
+        <div class="relative w-full px-4 max-w-full flex-grow flex-1 ">
+          <h3 class="font-semibold text-lg text-white">Seguimiento de equipo prestado y multas</h3>
+        </div>
+      </div>
+    </div>
+    <div class="block w-full overflow-x-auto ">
+      <table class="items-center w-full bg-transparent border-collapse">
+        <thead>
+          <tr>
+            <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-pink-800 text-pink-300 border-pink-700">Persona</th>
+            <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-pink-800 text-pink-300 border-pink-700">Equipamiento</th>
+            <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-pink-800 text-pink-300 border-pink-700">Estado</th>
+            <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-pink-800 text-pink-300 border-pink-700">Fecha Inicio</th>
+            <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-pink-800 text-pink-300 border-pink-700">Fecha Fin </th>
+            <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-pink-800 text-pink-300 border-pink-700">Fecha Entrega</th>
+            <th class="px-6 align-middle border border-solid py-3 text-xs uppercase border-l-0 border-r-0 whitespace-nowrap font-semibold text-left bg-pink-800 text-pink-300 border-pink-700">Multa</th>
+          </tr>
+        </thead>
+
+        <tbody>
+            {{#if allborrowers}}
+                {{#each allborrowers}}
+                    <tr>
+                        <th class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4 text-left flex items-center">
+                            <span class="ml-3 font-bold text-white"> {{prestamo.persona}} </span>
+                        </th>
+                        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">{{prestamo.equipamiento}}</td>
+                        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                        <i class="{{prestamo.css}}"></i>{{prestamo.estado}}</td>
+                        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                            <div class="flex">
+                                {{prestamo.fechainicio}}
+                            </div>
+                        </td>
+                        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                            <div class="flex items-center">
+                                <span class="mr-2">{{prestamo.fechafin}}</span>
+                            </div>
+                        </td>
+                        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                            <div class="flex items-center">
+                                <span class="mr-2">{{prestamo.fechaentrega}}</span>
+                            </div>
+                        </td>
+                        <td class="border-t-0 px-6 align-middle border-l-0 border-r-0 text-xs whitespace-nowrap p-4">
+                            <div class="flex items-center">
+                                <span class="mr-2">$ {{prestamo.multa}}</span>
+                            </div>
+                        </td>
+                    </tr>
+                {{/each}}
+            {{/if}}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+</section>
+<section class="relative ml-4 bg-blueGray-50">
+    <form action="/multas" method="POST">
+        <div class="form-group">
+            <label id="lblFechaInicio">Fecha Inicio</label>
+            <input type="text" class="form-control" name="fechaini" placeholder="yyyy-mm-dd">
+        </div>
+        <div class="mt-4 form-group">
+            <label id="lblFechaFin">Fecha Fin</label>
+            <input type="text" class="form-control ml-4" name="fechafin" placeholder="yyyy-mm-dd">
+        </div>
+        <div class="mt-4 form-group">
+            <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" >Filtrar</button>
+        </div>
+    </form>
+</section>
