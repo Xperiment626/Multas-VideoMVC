@@ -6,7 +6,7 @@ This application was created for academic purposes. It is an exercise where seve
 
 ## Deployment
 
-
+[IA-Multas-App Deployment in Heroku](https://ia-multas-app.herokuapp.com/)
 
 ## Technologies
 
@@ -15,6 +15,7 @@ This application was created for academic purposes. It is an exercise where seve
 * [Handlebars](https://handlebarsjs.com/guide/)
 * [Nodemon](https://nodemon.io/)
 * [MongoDB](https://docs.mongodb.com/)
+* [Heroku](https://www.heroku.com/)
 
 ## Setup
 
